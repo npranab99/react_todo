@@ -132,7 +132,7 @@ export default function ListItem({ todo, id, checkComplete }) {
                 )}
                 {showNested && (
                   <button
-                    className="btn_span"
+                    className="btn_save"
                     disabled={todo.complete}
                     onClick={hideNest}
                   >
