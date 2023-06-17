@@ -1,0 +1,227 @@
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.btn_edit {
+  border: none;
+  outline: none;
+  color: white;
+  background: orange;
+  padding: 5px 15px;
+  cursor: pointer;
+}
+
+.btn_add {
+  border: none;
+  outline: none;
+  color: white;
+  background: rgb(144, 139, 139);
+  padding: 5px 15px;
+  cursor: pointer;
+}
+
+.btn_edit {
+  border: none;
+  margin-right: 5px;
+  outline: none;
+  color: white;
+  background: rgb(255, 187, 61);
+  padding: 5px 15px;
+  cursor: pointer;
+}
+
+.btn_save {
+  border: none;
+  margin-right: 5px;
+  outline: none;
+  color: white;
+  background: rgb(206, 109, 206);
+  padding: 5px 15px;
+  cursor: pointer;
+  margin-top: 7px;
+}
+
+.logout {
+  text-align: right;
+}
+.logout button {
+  border: none;
+  outline: none;
+  color: white;
+  background: rgb(206, 109, 206);
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 7px;
+}
+
+.btn_container {
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.list_container_nested {
+  list-style: none;
+  position: relative;
+  margin: 8px 0;
+  padding: 5px;
+  display: flex;
+  margin-right: 80px;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: capitalize;
+  background: #ebe8e2;
+  border: 1px solid #ccc;
+}
+
+.btn_span {
+  border: none;
+  outline: none;
+  color: white;
+  background: rgb(144, 139, 139);
+  padding: 1px 4px;
+  cursor: pointer;
+}
+.todo_input {
+  flex: 3;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #555;
+  margin-right: 100px;
+}
+
+.App_login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background: white;
+  border-radius: 10px;
+}
+.center_h1 {
+  font-family: inherit;
+  text-align: center;
+  padding: 0px 0 20px 0;
+  border-bottom: 1px solid silver;
+  font-size: 30px;
+}
+.App_login form {
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+form .txt_field {
+  position: relative;
+  border-bottom: 2px solid #adadad;
+  margin: 30px 0;
+}
+.txt_field input {
+  width: 100%;
+  padding: 0 5px;
+  height: 40px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+}
+.txt_field label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  color: #adadad;
+  transform: translateY(-50%);
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.5s;
+}
+.txt_field span::before {
+  content: "";
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #2691d9;
+  transition: 0.5s;
+}
+
+.txt_field input:focus ~ label {
+  top: -5px;
+  color: #2691d9;
+}
+
+.focused label {
+  top: -5px;
+  color: #2691d9;
+}
+
+.txt_field input:focus ~ span::before {
+  width: 100%;
+}
+.focused span::before {
+  width: 100%;
+}
+
+.btn_login {
+  width: 100%;
+  height: 50px;
+  border: 1px solid;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+  margin-bottom: 30px;
+  display: flex;
+  padding: 10px;
+  background: linear-gradient(90deg, #3f51b5, transparent) #2196f3;
+  font-family: inherit;
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 1s;
+  place-content: center;
+}
+
+.btn_login:hover {
+  background-color: #e91e63;
+  color: #fff;
+}
+
+.pass {
+  color: #adadad;
+  margin: -5px 0 20px 5px;
+  cursor: pointer;
+}
+.pass:hover {
+  text-decoration: underline;
+}
