@@ -103,7 +103,7 @@ h3 {
 .list_parent p {
   margin-left: auto;
   margin-right: 10px;
-  opacity: 40%;
+
 }
 
 ul li .active {
@@ -145,7 +145,6 @@ ul li button:disabled {
 }
 .row p {
   letter-spacing: 1px;
-  opacity: 60%;
 }
 .row #delete {
   border: none;
