@@ -18,15 +18,18 @@ export default function FormInput() {
 
   return (
     <div>
-      <form autoComplete="off" onSubmit={addTodo}>
+      <form className="form" autoComplete="off" onSubmit={addTodo}>
         <input
+          className="form_input"
           type="text"
           required
           placeholder="What need to be done"
           value={todoName}
           onChange={(e) => setTodoName(e.target.value.toLocaleLowerCase())}
         />
-        <button type="submit">Create</button>
+        <button className="button_create" type="submit">
+          Create
+        </button>
       </form>
     </div>
   );

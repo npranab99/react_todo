@@ -80,7 +80,7 @@ export default function ListItem({ todo, id, checkComplete }) {
     <>
       {onEdit && (
         <div>
-          <li>
+          <li className="ul_li">
             <input
               type="text"
               id="editValue"
@@ -101,7 +101,7 @@ export default function ListItem({ todo, id, checkComplete }) {
 
       {!onEdit && (
         <div>
-          <li>
+          <li className="ul_li">
             <label htmlFor={id} className={todo.complete ? "active" : ""}>
               <input
                 type="checkbox"
@@ -148,15 +148,18 @@ export default function ListItem({ todo, id, checkComplete }) {
 
       {isNested && (
         <div>
-          <form autoComplete="off" onSubmit={createNastedLsit}>
+          <form className="form" autoComplete="off" onSubmit={createNastedLsit}>
             <input
+              className="form_input"
               type="text"
               placeholder="Sub list"
               value={addValue}
               required
               onChange={(e) => setAddValue(e.target.value.toLocaleLowerCase())}
             />
-            <button type="submit">Create</button>
+            <button className="button_create" type="submit">
+              Create
+            </button>
           </form>
         </div>
       )}

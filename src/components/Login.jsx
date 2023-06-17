@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import jwt from "jsonwebtoken";
@@ -13,9 +13,7 @@ function Login() {
   const auth = async function() {
     try {
       const user = await axios.get(URL);
-
       const userDetails = user.data;
-
       if (userDetails.username === pass && userDetails.email === email) {
         let data = { email, pass };
         const token = jwt.sign(data, "secret_key");
@@ -43,23 +41,32 @@ function Login() {
 
   return (
     <>
-      <div className="App">
+      <div className="App_login">
+        <h1 className="center_h1">Login</h1>
         <form onSubmit={login}>
-          <label>User Email</label>
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <br />
-          <label>Password</label>
-          <input
-            type="text"
-            value={pass}
-            onChange={(e) => setPass(e.target.value)}
-          />
-          <br />
-          <button type="submit">Login</button>
+          <div className={`txt_field ${email !== "" ? "focused" : ""}`}>
+            <input
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              // className={email !== "" ? "focused" : ""}
+            />
+            <span></span>
+            <label>User Email</label>
+          </div>
+          <div className={`txt_field ${pass !== "" ? "focused" : ""}`}>
+            <input
+              type="text"
+              value={pass}
+              onChange={(e) => setPass(e.target.value)}
+            />
+            <span></span>
+            <label>Password</label>
+          </div>
+          <div className="pass">Forgot Password?</div>
+          <button className="btn_login" type="submit">
+            Login
+          </button>
         </form>
         <br />
       </div>

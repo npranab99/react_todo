@@ -26,18 +26,20 @@ export default function List() {
   };
 
   return (
-    <div>
-      <ul>
-        {todos.map((todo, index) => (
-          <ListItem
-            todo={todo}
-            key={index}
-            id={todo.enum}
-            checkComplete={switchComplete}
-            handleEditTodos={handleEditTodos}
-          />
-        ))}
-      </ul>
-    </div>
+    <>
+      <div className="list">
+        <ul>
+          {todos.map((todo, index) => (
+            <ListItem
+              todo={todo}
+              key={index}
+              id={todo.enum}
+              checkComplete={switchComplete}
+              handleEditTodos={handleEditTodos}
+            />
+          ))}
+        </ul>
+      </div>
+    </>
   );
 }

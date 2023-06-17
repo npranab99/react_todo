@@ -8,9 +8,9 @@ import Header from "./Header";
 export default function DashBoard() {
   return (
     <>
-      <Header />
       <DataProvider>
         <div className="App">
+          <Header />
           <h2>To Do List</h2>
           <FormInput />
           <List />

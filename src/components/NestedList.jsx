@@ -47,8 +47,8 @@ export default function NestedList({ todo, todo2, id, checkComplete }) {
   return (
     <>
       {onEdit && (
-        <div className="nested">
-          <li>
+        <div>
+          <li className="list_container_nested">
             <input
               type="text"
               id="editValue"
@@ -67,7 +67,7 @@ export default function NestedList({ todo, todo2, id, checkComplete }) {
         </div>
       )}
       {!onEdit && (
-        <div className="nested">
+        <div>
           <ul>
             <li className="list_container_nested">
               <label
@@ -83,15 +83,13 @@ export default function NestedList({ todo, todo2, id, checkComplete }) {
                 {todo2.name}
               </label>
 
-              <div>
-                <button
-                  disabled={todo2.complete || todo.complete}
-                  className="btn_edit"
-                  onClick={handleOnEdit}
-                >
-                  Edit
-                </button>
-              </div>
+              <button
+                disabled={todo2.complete || todo.complete}
+                className="btn_edit"
+                onClick={handleOnEdit}
+              >
+                Edit
+              </button>
             </li>
           </ul>
         </div>

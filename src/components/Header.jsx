@@ -11,11 +11,10 @@ export default function Header() {
   return (
     <div>
       <>
-        <h1>Welcome !!</h1>
         <Link to="/">
-          <button className="logout" onClick={logOut}>
-            Log Out
-          </button>
+          <div className="logout">
+            <button onClick={logOut}>Log Out</button>
+          </div>
         </Link>
       </>
     </div>
