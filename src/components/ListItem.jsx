@@ -38,20 +38,17 @@ export default function ListItem({ todo, id, checkComplete }) {
     }
   };
 
-  //handeling event for nested todo
-
-  const handleAdd = () => {
-    setIsNested(true);
-  };
-
   const showNest = () => {
     setShowNested(true);
+    setIsNested(true);
   };
   const hideNest = () => {
     setShowNested(false);
+    setIsNested(false);
   };
 
-  const createNastedLsit = () => {
+  const createNastedLsit = (e) => {
+    e.preventDefault();
     setIsNested(false);
     if (addValue) {
       handleAddTodos(addValue, id);
@@ -122,8 +119,16 @@ export default function ListItem({ todo, id, checkComplete }) {
                 {newTodoComplete2().length}
               </p>
               <div>
+                {/* developing */}
+
                 {!showNested && (
-                  <button className="btn_span" onClick={showNest}>
+                  <button
+                    className="btn_span"
+                    onClick={function(event) {
+                      showNest();
+                      // handleAdd();
+                    }}
+                  >
                     <img
                       className="btn_image"
                       src="https://cdn-icons-png.flaticon.com/128/8639/8639799.png"
@@ -150,7 +155,7 @@ export default function ListItem({ todo, id, checkComplete }) {
                   src="https://cdn-icons-png.flaticon.com/128/469/469340.png"
                 />
               </button>
-              <button
+              {/* <button
                 className="btn_add"
                 onClick={handleAdd}
                 hidden={todo.complete}
@@ -159,34 +164,45 @@ export default function ListItem({ todo, id, checkComplete }) {
                   className="btn_image"
                   src="https://cdn-icons-png.flaticon.com/128/9055/9055025.png"
                 />
-              </button>
+              </button> */}
             </div>
           </li>
         </div>
       )}
 
-      {isNested && (
+      {showNested && (
         <div>
-          <form className="form" autoComplete="off" onSubmit={createNastedLsit}>
+          <form
+            className="form2"
+            autoComplete="off"
+            onSubmit={createNastedLsit}
+          >
             <input
-              className="form_input"
+              className="form_input_n"
               type="text"
-              placeholder="Sub list"
+              placeholder="Add your sub task"
               value={addValue}
               required
               onChange={(e) => setAddValue(e.target.value.toLocaleLowerCase())}
             />
-            <button className="button_create" type="submit">
-              Create
+            <button className="btn_edit" type="submit" hidden={todo.complete}>
+              <img
+                className="btn_image"
+                src="https://cdn-icons-png.flaticon.com/128/9055/9055025.png"
+              />
             </button>
           </form>
+
+          {todo.nested.map((todo2, index2) => (
+            <NestedList
+              todo={todo}
+              todo2={todo2}
+              key={index2}
+              id={todo2.enum}
+            />
+          ))}
         </div>
       )}
-
-      {showNested &&
-        todo.nested.map((todo2, index2) => (
-          <NestedList todo={todo} todo2={todo2} key={index2} id={todo2.enum} />
-        ))}
     </>
   );
 }
