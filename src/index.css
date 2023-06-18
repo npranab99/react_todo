@@ -62,6 +62,23 @@ h3 {
   margin-right: 30px;
   margin-left: 40px;
 }
+
+.form2 {
+  width: 73%;
+  height: 40px;
+  border-bottom: 1px solid #00000028;
+  margin: 10px 100px 0px 45px;
+  display: flex;
+}
+.form2 input {
+  flex: 4;
+  border: none;
+  outline: none;
+}
+.form2 button {
+  margin: 0 0px;
+}
+
 .button_create {
   flex: 1;
   background: rgb(121, 118, 118);
