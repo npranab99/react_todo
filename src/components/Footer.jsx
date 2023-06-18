@@ -21,13 +21,13 @@ export default function Footer() {
     return todos.filter((todo) => todo.complete === false);
   };
 
-  //delete nested task
-  // const newTodoComplete2 = () => {
-  //   const R = todos.filter((todo) => {
-  //    / todo.nested.filter((e) => e.complete === false);
-  //   });
-  //   setTodos(R);
-  // };
+  const deleteNestedList = () => {
+    const newTodos = [...todos];
+    newTodos.forEach((todo) => {
+      todo.nested = todo.nested.filter((nested) => nested.complete === false);
+    });
+    setTodos(newTodos);
+  };
 
   const deleteTodo = () => {
     setTodos(newTodoComplete());
@@ -51,7 +51,13 @@ export default function Footer() {
             All
           </label>
           <p>You have {newTodoComplete().length} task to do</p>
-          <button id="delete" onClick={deleteTodo}>
+          <button
+            id="delete"
+            onClick={function() {
+              deleteTodo();
+              deleteNestedList();
+            }}
+          >
             Delete
           </button>
         </div>
