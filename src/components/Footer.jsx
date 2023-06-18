@@ -26,7 +26,6 @@ export default function Footer() {
     return newTodos.forEach((todo) => {
       todo.nested = todo.nested.filter((nested) => nested.complete === false);
     });
-    // setTodos(newTodos);
   };
 
   const deleteTodo = () => {
@@ -58,8 +57,7 @@ export default function Footer() {
           <button
             id="delete"
             onClick={function(event) {
-              deleteTodo();
-              // deleteNestedList();
+              deleteTodo();     
             }}
           >
             Delete
