@@ -23,14 +23,18 @@ export default function Footer() {
 
   const deleteNestedList = () => {
     const newTodos = [...todos];
-    newTodos.forEach((todo) => {
+    return newTodos.forEach((todo) => {
       todo.nested = todo.nested.filter((nested) => nested.complete === false);
     });
-    setTodos(newTodos);
+    // setTodos(newTodos);
   };
 
   const deleteTodo = () => {
-    setTodos(newTodoComplete());
+    setTodos(() => {
+      const updatedTodos = newTodoComplete();
+      deleteNestedList();
+      return updatedTodos;
+    });
     setCheckAll(false);
   };
 
@@ -53,9 +57,9 @@ export default function Footer() {
           <p>You have {newTodoComplete().length} task to do</p>
           <button
             id="delete"
-            onClick={function() {
+            onClick={function(event) {
               deleteTodo();
-              deleteNestedList();
+              // deleteNestedList();
             }}
           >
             Delete
