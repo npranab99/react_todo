@@ -73,6 +73,7 @@ export default function ListItem({ todo, id, checkComplete }) {
   };
 
   const newTodoComplete2 = () => {
+    // console.log(todo.nested.length());
     return todo.nested.filter((e) => e.complete === false);
   };
 
@@ -116,14 +117,13 @@ export default function ListItem({ todo, id, checkComplete }) {
                 />
                 {todo.name}
               </label>
-              <p>{newTodoComplete2().length}</p>
+              <div></div>
+              <p hidden={todo.nested.length === 0}>
+                {newTodoComplete2().length}
+              </p>
               <div>
                 {!showNested && (
-                  <button
-                    className="btn_save"
-                    disabled={todo.complete}
-                    onClick={showNest}
-                  >
+                  <button className="btn_span" onClick={showNest}>
                     <img
                       className="btn_image"
                       src="https://cdn-icons-png.flaticon.com/128/8639/8639799.png"
@@ -131,14 +131,10 @@ export default function ListItem({ todo, id, checkComplete }) {
                   </button>
                 )}
                 {showNested && (
-                  <button
-                    className="btn_save"
-                    disabled={todo.complete}
-                    onClick={hideNest}
-                  >
+                  <button className="btn_span" onClick={hideNest}>
                     <img
-                      className="btn_image"
-                      src="https://cdn-icons-png.flaticon.com/128/7344/7344861.png"
+                      className="btn_image1"
+                      src="https://cdn-icons-png.flaticon.com/128/8639/8639799.png"
                     />
                   </button>
                 )}
@@ -146,22 +142,22 @@ export default function ListItem({ todo, id, checkComplete }) {
 
               <button
                 className="btn_edit"
-                disabled={todo.complete}
+                hidden={todo.complete}
                 onClick={handleOnEdit}
               >
                 <img
                   className="btn_image"
-                  src="https://cdn-icons-png.flaticon.com/128/1160/1160758.png"
+                  src="https://cdn-icons-png.flaticon.com/128/469/469340.png"
                 />
               </button>
               <button
                 className="btn_add"
                 onClick={handleAdd}
-                disabled={todo.complete}
+                hidden={todo.complete}
               >
                 <img
                   className="btn_image"
-                  src="https://cdn-icons-png.flaticon.com/128/2040/2040525.png"
+                  src="https://cdn-icons-png.flaticon.com/128/9055/9055025.png"
                 />
               </button>
             </div>
