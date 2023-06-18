@@ -95,8 +95,10 @@ h3 {
   margin-right: 0px;
 }
 .list_parent label {
+  padding: 8px 0 10px;
   max-width: 400px;
   overflow: hidden;
+  margin-right: auto;
   text-overflow: ellipsis;
 }
 
@@ -135,6 +137,9 @@ ul li button:disabled {
 }
 .list_container_nested input[type="text"] {
   margin: 0 0 0px 40px;
+}
+.list_container_nested label {
+  padding: 3px;
 }
 .row {
   display: flex;
