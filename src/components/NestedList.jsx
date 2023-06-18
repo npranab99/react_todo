@@ -87,7 +87,7 @@ export default function NestedList({ todo, todo2, id, checkComplete }) {
               </label>
 
               <button
-                disabled={todo2.complete || todo.complete}
+                hidden={todo2.complete || todo.complete}
                 className="btn_edit"
                 onClick={handleOnEdit}
               >
